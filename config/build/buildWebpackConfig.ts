@@ -18,7 +18,7 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
         module: {
             rules: buildLoaders(options),
         },
-        resolve: buildResolver(),
+        resolve: buildResolver(options),
         plugins: buildPlugins(options),
         devtool: isDev ? 'inline-source-map' : undefined,
         // покажет в каком конкретно файле из сборки ошибка, только в режиме dev сборки

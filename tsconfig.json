@@ -20,9 +20,13 @@
         "allowSyntheticDefaultImports": true,
         // позволяет делать импорты не указывая расширения файлов
 
-        "esModuleInterop": true
+        "esModuleInterop": true,
         // esModuleInterop позволяет работать с пакетами, которые используют
         // common js как с обычными пакетами с помощью import. Не используя (require() module.export) = common js
+        "baseUrl": ".",
+        "paths": {
+            "*": ["./src/*"]
+        }
     },
     "ts-node": {
         "compilerOptions": {
