@@ -8,3 +8,5 @@ export interface ThemeContextPops {
 export const ThemeContext = createContext<ThemeContextPops>({});
 
 export const LOCAL_STORAGE_THEME_KEY = 'theme';
+
+export { Theme };

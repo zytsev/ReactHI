@@ -10,6 +10,18 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     };
     //если без TS, то нужно дабавлять лоадер - babel
 
+    const SvgLoader = {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+    };
+    const FileLoader = {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+            {
+                loader: 'file-loader',
+            },
+        ],
+    };
     const CssLoader = {
         test: /\.css$/i,
         use: [
@@ -22,10 +34,11 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
                         //  важно, иначе модули css не будут читаться
                         auto: (resourcePath: string) => Boolean(resourcePath.includes('.module')),
                         localIdentName: options.isDev ? '[path][name]__[local]--[hash:base64:5]' : '[hash:base64:8]',
+                        exportLocalsConvention: 'camelCase',
                     },
                 },
             },
         ],
     };
-    return [TypeScriptLoader, CssLoader];
+    return [TypeScriptLoader, CssLoader, SvgLoader, FileLoader];
 }

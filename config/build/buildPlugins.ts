@@ -9,5 +9,8 @@ export function buildPlugins(options: BuildOptions): webpack.WebpackPluginInstan
         new webpack.ProgressPlugin(),
         new MiniCssExtractPlugin({ filename: '[name].[contenthash:8]css', chunkFilename: '[name].[contenthash:8]css' }),
         //этот плагин для получения css в отдельном файле .css
+        new webpack.DefinePlugin({
+            __IS_DEV__: JSON.stringify(options.isDev), //прокидывает переменные по проекту
+        }),
     ];
 }
