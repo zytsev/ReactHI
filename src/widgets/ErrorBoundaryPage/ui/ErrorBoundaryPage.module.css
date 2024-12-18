@@ -1,0 +1,6 @@
+.ErrorBoundaryPage {
+    display: flex;
+    justify-content: center;
+    margin-top: 20%;
+    font-size: var(--font-size-l);
+}

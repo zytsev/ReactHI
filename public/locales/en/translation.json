@@ -2,5 +2,6 @@
     "Home": "Home",
     "About": "About",
     "lang": "EN",
-    "Page not found": "Page not found"
+    "Page not found": "Page not found",
+    "error": "An unexpected error occurred"
 }

@@ -2,5 +2,6 @@
     "Home": "Casa",
     "About": "Sobre",
     "lang": "PT",
-    "Page not found": "Pagina nao encontra-se"
+    "Page not found": "Pagina nao encontra-se",
+    "error": "Ocorreu um erro inesperado"
 }
