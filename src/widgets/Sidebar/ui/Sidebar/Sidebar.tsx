@@ -11,8 +11,10 @@ export const Sidebar = ({ className }: SidebarProps) => {
         setCollapsed(!collapsed);
     };
     return (
-        <div className={classNames(style.Sidebar, { [style.collapsed]: collapsed }, [className])}>
-            <button onClick={onToggle}>togle</button>
+        <div data-testid='sidebar' className={classNames(style.Sidebar, { [style.collapsed]: collapsed }, [className])}>
+            <button data-testid='sidebar-toggle' onClick={onToggle}>
+                togle
+            </button>
         </div>
     );
 };
