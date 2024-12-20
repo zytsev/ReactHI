@@ -5,7 +5,7 @@ import webpack from 'webpack';
 import { BuildOptions } from './types/config';
 
 export function buildPlugins(options: BuildOptions): webpack.WebpackPluginInstance[] {
-    return [
+    const plugins = [
         new HtmlWebpackPlugin({ template: options.paths.html }),
         new webpack.ProgressPlugin(),
         new MiniCssExtractPlugin({ filename: '[name].[contenthash:8]css', chunkFilename: '[name].[contenthash:8]css' }),
@@ -13,6 +13,11 @@ export function buildPlugins(options: BuildOptions): webpack.WebpackPluginInstan
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(options.isDev), //прокидывает переменные по проекту
         }),
-        new BundleAnalyzerPlugin({ openAnalyzer: false }), //этот плагин анализирует размеры бандла
     ];
+    if (options.isDev) {
+        plugins.push(
+            new BundleAnalyzerPlugin({ openAnalyzer: false }) //этот плагин анализирует размеры бандла
+        );
+    }
+    return plugins;
 }
