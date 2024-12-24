@@ -18,7 +18,7 @@ jobs:
             - name: Use Node.js ${{ matrix.node }}
               uses: actions/setup-node@v3
                 with:
-                  node-version: ${{ matrix.node }}
+                  node-version: [ 16. x , 18. x ] 
             - name: install modules
               run: npm i
             - name: build prodaction project
